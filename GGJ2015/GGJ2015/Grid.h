@@ -16,6 +16,7 @@ public:
 	Cell* GetCell(int x, int y);
 	Cell* GetNeighborCell(Cell *cell, int x, int y);
 	Cell* GetNearestCell(int x, int y);
+	static Grid* Instance(){ return instance; }
 
 	int GetCellSize();
 	int GetColumns();
@@ -34,7 +35,7 @@ private:
 	int _gridOriginY;
 
 	Cell*** _cells;
-
+	static Grid* instance;
 };
 
 #endif GRID_H

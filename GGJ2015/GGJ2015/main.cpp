@@ -8,6 +8,11 @@
 
 int main(int argc, char* args[])
 {
+	/*
+	int tmpDbgFlag = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+	tmpDbgFlag |= _CRTDBG_LEAK_CHECK_DF;
+	_CrtSetDbgFlag(tmpDbgFlag);*/
+
 	bool running = true;
 	SDL_Event e;
 	GameController gameController;
