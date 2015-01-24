@@ -29,15 +29,14 @@ int main(int argc, char* args[])
 			{
 				gameController.handleInput(e);
 			}
-			gameController.Update(elapsed);
-			gameController.Draw();
-			lastTime = current;
-			//if elapsed < 1/max fps, sleep
-			if (elapsed < minTimeStep)
-			{
-				
-				Sleep((minTimeStep - elapsed) * 1000);
-			}
+		}
+		gameController.Update(elapsed);
+		gameController.Draw();
+		lastTime = current;
+		//if elapsed < 1/max fps, sleep
+		if (elapsed < minTimeStep)
+		{
+			Sleep((minTimeStep - elapsed) * 1000);
 		}
 	}
 

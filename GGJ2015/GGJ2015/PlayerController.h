@@ -2,13 +2,12 @@
 #define PLAYERCONTROLLER_H
 
 #include "Tickable.h"
-#include "Player.h"
-#include "Command.h"
 
+class Command;
 class PlayerController : public Tickable
 {
 	public:
-		PlayerController(Player* playerRef);
+		PlayerController(GameObject* theObject);
 		virtual ~PlayerController();
 		virtual void Update(float timeElapsed);
 		void handleInput(SDL_Event& e);

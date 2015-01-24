@@ -35,9 +35,6 @@ void Grid::Initialize(const char* level)
 
 	int* nodes = XmlParser::GetNodes(level);
 
-	/*printf("Size: %d\n", nodes.size());*/
-	printf("Cell Size: %d\n", _cellSize);
-
 	//Wall *theWall = new Wall();
 	for (int x = 0; x < _columns; x++)
 	{

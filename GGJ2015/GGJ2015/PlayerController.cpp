@@ -1,6 +1,6 @@
 #include "PlayerController.h"
 
-PlayerController::PlayerController(Player* playerRef)
+PlayerController::PlayerController(GameObject* theObject)
 {
 
 }
@@ -17,5 +17,5 @@ void PlayerController::Update(float timeElapsed)
 
 void PlayerController::handleInput(SDL_Event& e)
 {
-
+	printf("handling input\n");
 }

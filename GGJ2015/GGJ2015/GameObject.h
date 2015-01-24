@@ -16,7 +16,7 @@ class GameObject
 		GameObject();
 		GameObject(Visibility* v, Tickable* t);
 		~GameObject();
-		void Update(float timeElapsed);
+		virtual void Update(float timeElapsed);
 		void Draw(SDL_Renderer* theRenderer);
 		SDL_Rect GetDestRect()
 		{
