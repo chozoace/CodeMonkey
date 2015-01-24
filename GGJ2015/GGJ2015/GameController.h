@@ -11,6 +11,7 @@
 
 #include "GameObject.h"
 #include "Grid.h"
+#include "Camera.h"
 
 class GameController
 {
@@ -31,6 +32,8 @@ class GameController
 		void Update(float elapsedTime);
 		void handleInput(SDL_Event& e);
 		void addToGameObjectList(GameObject* theObject);
+		int levelWidth = 640;
+		int levelHeight = 448;
 		int screenHeight = 448;
 		int screenWidth = 640;
 	private:

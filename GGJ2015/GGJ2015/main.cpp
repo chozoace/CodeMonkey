@@ -18,7 +18,6 @@ int main(int argc, char* args[])
 	{
 		float current = (((float)clock()) / CLOCKS_PER_SEC);
 		float elapsed = (current - lastTime);
-
 		while (SDL_PollEvent(&e) != 0)
 		{
 			if (e.type == SDL_QUIT)

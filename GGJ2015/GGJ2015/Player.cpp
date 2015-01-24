@@ -15,6 +15,7 @@ Player::Player(int xPos, int yPos)
 	//
 	_v = new Visible(this);
 	playerController = new PlayerController(this);
+	_t = playerController;
 	_xPosition = xPos;
 	_yPosition = yPos;
 	_width = 64;

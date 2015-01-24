@@ -7,8 +7,8 @@ class Wall : public GameObject
 {
 	public:
 		Wall(){}
-		Wall(int xPos, int yPos, int theId);
-		void Initialize(int xPos, int yPos, int theId);
+		Wall(float xPos, float yPos, int theId);
+		void Initialize(float xPos, float yPos, int theId);
 		virtual ~Wall();
 	protected:
 		int id;

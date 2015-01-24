@@ -21,25 +21,26 @@ class GameObject
 		SDL_Rect GetDestRect()
 		{
 			SDL_Rect result;
-			result.x = _xPosition;
-			result.y = _yPosition;
+			result.x = (int)_xPosition;
+			result.y = (int)_yPosition;
 			result.w = _width;
 			result.h = _height;
 			return result;
 		}
-		void setXPos(int newPos){ _xPosition = newPos; }
-		void setYPos(int newPos){ _yPosition = newPos; }
-		int getXPos(){ return _xPosition; }
-		int getYPos(){ return _yPosition; }
+		void setXPos(float newPos){ _xPosition = newPos; }
+		void setYPos(float newPos){ _yPosition = newPos; }
+		float getXPos(){ return _xPosition; }
+		float getYPos(){ return _yPosition; }
 		int getWidth(){ return _width; }
 		int getHeight(){ return _height; }
+		Tickable* getTickableComponent(){ return _t; }
 	protected:
 		Visibility* _v;
 		Tickable* _t;
-		int _xPosition;
-		int _yPosition;
-		int _width;
-		int _height;
+		float _xPosition = 0;
+		float _yPosition = 0;
+		int _width = 0;
+		int _height = 0;
 };
 
 #endif GAMEOBJECT_H

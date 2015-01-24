@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameController.cpp" />
@@ -30,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />

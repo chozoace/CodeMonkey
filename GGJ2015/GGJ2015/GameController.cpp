@@ -6,6 +6,7 @@ Player* thePlayer;
 Background* theBackground;
 GameController* GameController::instance = NULL;
 PlayerController* theController;
+Camera* theCamera;
 
 GameController::GameController()
 {
@@ -15,6 +16,7 @@ GameController::GameController()
 	}
 	else
 	{
+		theCamera = new Camera();
 		thePlayer = new Player(100, 100);
 		theController = thePlayer->getPlayerController();
 		//theBackground = new Background("Background.png");
@@ -26,6 +28,7 @@ GameController::GameController()
 GameController::~GameController()
 {
 	delete theBackground;
+	delete theCamera;
 	//delete myGrid;
 	delete thePlayer;
 	SDL_DestroyWindow(gWindow);

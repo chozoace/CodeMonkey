@@ -87,6 +87,9 @@
     <ClCompile Include="XmlParser.cpp">
       <Filter>Source Files\XML</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameController.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="XmlParser.h">
       <Filter>Header Files\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

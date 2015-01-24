@@ -2,7 +2,7 @@
 #include "Visible.h"
 #include "GameController.h"
 
-Wall::Wall(int xPos, int yPos, int theId)
+Wall::Wall(float xPos, float yPos, int theId)
 {
 	_xPosition = xPos;
 	_yPosition = yPos;
@@ -18,7 +18,7 @@ Wall::Wall(int xPos, int yPos, int theId)
 	}
 }
 
-void Wall::Initialize(int xPos, int yPos, int theId)
+void Wall::Initialize(float xPos, float yPos, int theId)
 {
 	_xPosition = xPos;
 	_yPosition = yPos;

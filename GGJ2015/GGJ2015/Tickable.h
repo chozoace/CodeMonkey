@@ -14,8 +14,16 @@ class Tickable : public Component
 		Tickable(GameObject *theObject);
 		virtual ~Tickable();
 		virtual void Update(float timeElapsed);
+		void setXVelocity(float value) { xVelocity = value; }
+		void setYVelocity(float value) { yVelocity = value; }
+		float getXVelocity() { return xVelocity; }
+		float getYVelocity() { return yVelocity; }
+		int getMoveSpeed(){ return moveSpeed; }
 	protected:
 		bool counter = false;
+		int moveSpeed = 1000;
+		float xVelocity = 0;
+		float yVelocity = 0;
 };
 
 #endif TICKABLE_H
