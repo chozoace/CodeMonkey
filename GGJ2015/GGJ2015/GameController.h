@@ -10,6 +10,7 @@
 #include <list>
 
 #include "GameObject.h"
+#include "Grid.h"
 
 class GameController
 {
@@ -30,7 +31,7 @@ class GameController
 		void Update(float elapsedTime);
 		void handleInput(SDL_Event& e);
 		void addToGameObjectList(GameObject* theObject);
-		int screenHeight = 480;
+		int screenHeight = 448;
 		int screenWidth = 640;
 	private:
 		SDL_Window* gWindow = NULL;
@@ -38,6 +39,7 @@ class GameController
 		bool Initialize();
 		static GameController* instance;
 		list<GameObject*> gameObjectList;
+		Grid *myGrid;
 };
 
 #endif GAMECONTROLLER_H

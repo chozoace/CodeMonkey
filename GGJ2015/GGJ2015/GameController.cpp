@@ -12,7 +12,9 @@ GameController::GameController()
 	}
 	else
 	{
-		theBackground = new Background("Background.png");
+		//theBackground = new Background("Background.png");
+		myGrid = new Grid();
+		myGrid->Initialize("TestXml.xml");
 	}
 }
 

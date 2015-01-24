@@ -12,9 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NonTickable.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -23,13 +25,17 @@
     <ClCompile Include="Tickable.cpp" />
     <ClCompile Include="Visibility.cpp" />
     <ClCompile Include="Visible.cpp" />
+    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="XmlParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="NonTickable.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerController.h" />
@@ -37,6 +43,8 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Visibility.h" />
     <ClInclude Include="Visible.h" />
+    <ClInclude Include="Wall.h" />
+    <ClInclude Include="XmlParser.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{62AEF0C9-7B93-41D3-B778-AB2A9CD4CFF7}</ProjectGuid>
