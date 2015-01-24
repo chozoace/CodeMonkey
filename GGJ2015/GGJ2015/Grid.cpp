@@ -18,9 +18,15 @@ Grid::Grid()
 
 Grid::~Grid()
 {
-	for (int counter = 0; counter < (_rows * _columns); counter++)
+	int counter = 0;
+	for (int counterY = 0; counterY < _rows; counterY++)
 	{
-		delete _cells[counter];
+		for (int counterX = 0; counterX < _columns; counterX++)
+		{	
+			delete _cells[counterX][counterY];
+			_cells[counterX][counterY] = NULL;
+			counter++;
+		}
 	}
 	delete _cells;
 }
@@ -45,23 +51,21 @@ void Grid::Initialize(const char* level)
 	_columns = XmlParser::GetIntVariable("width", level);
 	_rows = XmlParser::GetIntVariable("height", level);
 	_cellSize = XmlParser::GetIntVariable("tilewidth", level);
+	
 
-	_cells = new Cell*[_rows , _columns] {};
+	_cells = new Cell**[_columns];
+	for (int i = 0; i < _columns; i++)
+		_cells[i] = new Cell*[_rows];
 
 	int* nodes = XmlParser::GetNodes(level);
 
 	int counter = 0;
-
-	//Wall *theWall = new Wall();
 	for (int y = 0; y < _rows; y++)
 	{
 		for (int x = 0; x < _columns; x++)
 		{
-
 			Cell* cell = new Cell();
-			_cells[x, y] = cell;
-
-			printf("Gid: %d\n", nodes[counter]);
+			_cells[x][y] = cell;
 
 			if (nodes[counter] == 1)
 			{
@@ -69,11 +73,11 @@ void Grid::Initialize(const char* level)
 				theWall->Initialize(x * _cellSize, y * _cellSize, 1);
 				GameController::Instance()->addToGameObjectList(theWall);
 
-				_cells[x, y]->SetGameObject(theWall);
+				_cells[x][y]->SetGameObject(theWall);
 			}
 			else if (nodes[counter] == 2)
 			{
-
+				GameController::Instance()->CreatePlayer(x * _cellSize, y * _cellSize);
 			}
 
 			counter++;
@@ -85,7 +89,7 @@ Cell* Grid::GetCell(int x, int y)
 {
 	if (x < 0 || y < 0 || x > (_columns * _rows) || y >= (_columns * _rows)) return NULL;
 
-	return _cells[x, y];
+	return _cells[x][y];
 }
 
 Cell* Grid::GetNeighborCell(Cell *targetCell, int xOffSet, int yOffSet)

@@ -28,11 +28,12 @@ private:
 	int _cellSize;
 	int _columns;
 	int _rows;
+	int _numberOfTiles;
 
 	int _gridOriginX;
 	int _gridOriginY;
 
-	Cell** _cells;
+	Cell*** _cells;
 
 };
 

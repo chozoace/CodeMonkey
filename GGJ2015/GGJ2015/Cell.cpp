@@ -2,13 +2,16 @@
 
 Cell::Cell()
 {
+	myObject = NULL;
 }
 
 
 Cell::~Cell()
 {
 	if (myObject != NULL)
+	{
 		delete myObject;
+	}
 }
 
 int Cell::GetCellX()

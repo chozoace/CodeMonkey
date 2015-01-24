@@ -13,8 +13,10 @@ GameObject::GameObject(Visibility* v, Tickable* t)
 
 GameObject::~GameObject()
 {
-	delete _v;
-	delete _t;
+	if (_v != NULL)
+		delete _v;
+	if (_t != NULL)
+		delete _t;
 }
 
 void GameObject::Update(float timeElapsed)

@@ -19,6 +19,6 @@ public:
 private:
 	int _cellX;
 	int _cellY;
-	GameObject* myObject = NULL;
+	GameObject* myObject;
 };
 

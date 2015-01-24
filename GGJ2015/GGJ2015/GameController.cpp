@@ -17,12 +17,16 @@ GameController::GameController()
 	else
 	{
 		theCamera = new Camera();
-		thePlayer = new Player(100, 100);
-		theController = thePlayer->getPlayerController();
 		//theBackground = new Background("Background.png");
 		myGrid = new Grid();
 		myGrid->Initialize("TestXml.xml");
 	}
+}
+
+void GameController::CreatePlayer(float x, float y)
+{
+	thePlayer = new Player(x, y);
+	theController = thePlayer->getPlayerController();
 }
 
 GameController::~GameController()
@@ -115,7 +119,8 @@ SDL_Texture* GameController::loadTexture(std::string path)
 
 void GameController::handleInput(SDL_Event& e)
 {
-	theController->handleInput(e);
+	if (thePlayer != NULL)
+		theController->handleInput(e);
 }
 
 void GameController::Update(float elapsedTime)

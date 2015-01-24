@@ -35,20 +35,19 @@ PlayerController::~PlayerController()
 
 void PlayerController::Update(float timeElapsed)
 {
-	//printf("xpos: %d\n", myObject->getXPos());
+	//printf("xpos: %f\n", myObject->getXPos());
 	//For some reasone left and up movement move really fast compared to down and right. Keep the speed high
 	//Something wrong with elapsed time
 	myObject->setXPos(myObject->getXPos() + (xVelocity * timeElapsed));
 	myObject->setYPos(myObject->getYPos() + (yVelocity * timeElapsed));
 
-	
 	//center camera over player
-	Camera::Instance()->setXPosition((myObject->getXPos() + screenWidth / 2) - screenWidth / 2);
-	Camera::Instance()->setYPosition((myObject->getYPos() + screenHeight / 2) - screenHeight / 2);
+	Camera::Instance()->setXPosition((myObject->getXPos() + myObject->getWidth() / 2) - screenWidth / 2);
+	Camera::Instance()->setYPosition((myObject->getYPos() + myObject->getHeight() / 2) - screenHeight / 2);
 
-	
 	int camX = Camera::Instance()->getXPosition();
 	int camY = Camera::Instance()->getYPosition();
+
 	//Keep camera in bounds
 	if (camX < 0)
 	{
