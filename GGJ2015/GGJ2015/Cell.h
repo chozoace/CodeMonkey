@@ -11,9 +11,14 @@ public:
 
 	CellType _cellType;
 
+	int GetCellX();
+	int GetCellY();
+	GameObject* GetGameObject();
+	void SetGameObject(GameObject* obj);
+
 private:
 	int _cellX;
 	int _cellY;
-	GameObject* myObject;
+	GameObject* myObject = NULL;
 };
 

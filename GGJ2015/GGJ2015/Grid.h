@@ -1,3 +1,6 @@
+#ifndef GRID_H
+#define GRID_H
+
 #pragma once
 #include "Cell.h"
 #include <string>
@@ -10,9 +13,15 @@ public:
 
 	void Initialize(const char* level);
 	
-	Cell GetCell(int x, int y);
-	Cell GetNeighborCell(int x, int y, Cell cell);
-	Cell GetNearestCell(int x, int y);
+	Cell* GetCell(int x, int y);
+	Cell* GetNeighborCell(Cell *cell, int x, int y);
+	Cell* GetNearestCell(int x, int y);
+
+	int GetCellSize();
+	int GetColumns();
+	int GetRows();
+	int GetGridOriginX;
+	int GetGridOriginY;
 
 private:
 
@@ -20,7 +29,11 @@ private:
 	int _columns;
 	int _rows;
 
+	int _gridOriginX;
+	int _gridOriginY;
+
 	Cell** _cells;
 
 };
 
+#endif GRID_H

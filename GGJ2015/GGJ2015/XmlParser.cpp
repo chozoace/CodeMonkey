@@ -46,8 +46,8 @@ int*  XmlParser::GetNodes(const char* xmlFile)
 	for (xml_node<> *iter = node->first_node("layer")->first_node()->first_node(); iter; iter = iter->next_sibling())
 	{
 		xml_attribute<> *attr = iter->first_attribute();
-		std::string value = attr->value();
-		gidArray[counter] = atoi(value.c_str());
+		std::string gidValue = attr->value();
+		gidArray[counter] = atoi(gidValue.c_str());
 		counter++;
 	}
 

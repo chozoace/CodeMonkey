@@ -20,8 +20,8 @@ GameController::GameController()
 		thePlayer = new Player(100, 100);
 		theController = thePlayer->getPlayerController();
 		//theBackground = new Background("Background.png");
-		//myGrid = new Grid();
-		//myGrid->Initialize("TestXml.xml");
+		myGrid = new Grid();
+		myGrid->Initialize("TestXml.xml");
 	}
 }
 
@@ -29,7 +29,7 @@ GameController::~GameController()
 {
 	delete theBackground;
 	delete theCamera;
-	//delete myGrid;
+	delete myGrid;
 	delete thePlayer;
 	SDL_DestroyWindow(gWindow);
 	SDL_DestroyRenderer(gRenderer);
