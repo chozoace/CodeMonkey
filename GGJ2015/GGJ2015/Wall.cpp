@@ -29,6 +29,7 @@ void Wall::Initialize(float xPos, float yPos, int theId, int theValue)
 		case 3:
 			_v->setTexture(GameController::Instance()->loadTexture("Pushable.png"));
 			pushable = true;
+			blockValue = -1;
 			break;
 		case 4://locked
 			_v->setTexture(GameController::Instance()->loadTexture("Lock.png"));
