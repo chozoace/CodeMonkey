@@ -41,8 +41,9 @@ class GameObject
 		void moveWall(int direction);
 		bool isPushable() { return pushable; }
 		bool IsWall() { return isWall; }
+		int getBlockValue(){ return blockValue; }
 		void detectCell();
-		void Action();
+		void Action(int actionId);
 	protected:
 		Visibility* _v;
 		Tickable* _t;
@@ -57,6 +58,8 @@ class GameObject
 		int _width = 0;
 		int _height = 0;
 		int id = 0; //player id = 100
+		
+		int blockValue = 0;
 };
 
 #endif GAMEOBJECT_H

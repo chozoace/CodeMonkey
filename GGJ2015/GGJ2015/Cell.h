@@ -18,6 +18,7 @@ public:
 	GameObject* GetGameObject();
 	void SetGameObject(GameObject* obj);
 	void RemoveGameObject();
+	void SafeRemoveGameObject();
 private:
 	int _cellX;
 	int _cellY;

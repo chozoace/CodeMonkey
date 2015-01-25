@@ -34,8 +34,8 @@ class GameController
 		void addToGameObjectList(GameObject* theObject);
 		void removeFromGameObjectList(GameObject* theObject);
 		void CreatePlayer(float x, float y);
-		int levelWidth = 1280;
-		int levelHeight = 896;
+		int levelWidth = 1600;
+		int levelHeight = 1152;
 		int screenHeight = 448;
 		int screenWidth = 640;
 	private:

@@ -19,7 +19,7 @@ GameController::GameController()
 		theCamera = new Camera();
 		//theBackground = new Background("Background.png");
 		myGrid = new Grid();
-		myGrid->Initialize("TestXml.xml");
+		myGrid->Initialize("Level1.xml");
 	}
 }
 

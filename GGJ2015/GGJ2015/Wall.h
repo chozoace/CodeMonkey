@@ -10,7 +10,7 @@ class Wall : public GameObject
 	public:
 		Wall(){}
 		Wall(float xPos, float yPos, int theId);
-		void Initialize(float xPos, float yPos, int theId);
+		void Initialize(float xPos, float yPos, int theId, int theValue = 0);
 		virtual ~Wall();
 		void destroy();
 		void moveWall(int direction);

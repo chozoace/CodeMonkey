@@ -69,35 +69,117 @@ void Grid::Initialize(const char* level)
 			cell->SetCellX(x * _cellSize);
 			cell->SetCellY(y * _cellSize);
 
-			if (nodes[counter] == 1)
+			switch (nodes[counter])
 			{
-				Wall *theWall = new Wall();
-				theWall->Initialize(x * _cellSize, y * _cellSize, 1);
-				GameController::Instance()->addToGameObjectList(theWall);
-				_cells[x][y]->_cellType = Cell::Wall;
+				case 1://wall
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 1);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
 
-				_cells[x][y]->SetGameObject(theWall);
-			}
-			else if (nodes[counter] == 2)
-			{
-				GameController::Instance()->CreatePlayer(x * _cellSize, y * _cellSize);
-			}
-			else if (nodes[counter] == 3)
-			{
-				//pushable wall
-				Wall *theWall = new Wall();
-				theWall->Initialize(x * _cellSize, y * _cellSize, 3);
-				GameController::Instance()->addToGameObjectList(theWall);
-				_cells[x][y]->_cellType = Cell::Pushable;
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 2://player
+					GameController::Instance()->CreatePlayer(x * _cellSize, y * _cellSize);
+					break;
+				case 3://pushable variable
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 3);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Pushable;
 
-				_cells[x][y]->SetGameObject(theWall);
-			}
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 4://locked
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 4);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
 
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 5://else
+					break;
+				case 6://if
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 6);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 7://check equal (destroys 4)
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 7);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 8://equal image
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 8);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 9://assign block on detect
+					{
+						printf("made\n");
+						Wall *theWall = new Wall();
+						theWall->Initialize(x*_cellSize, y * _cellSize, 9);
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 10://first condition
+					{
+						printf("made\n");
+						Wall *theWall = new Wall();
+						theWall->Initialize(x*_cellSize, y * _cellSize, 10);
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 11://second condition
+					break;
+				case 12://value containing 4
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 12);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+				case 13://value containing 10
+					{
+						Wall *theWall = new Wall();
+						theWall->Initialize(x * _cellSize, y * _cellSize, 13);
+						GameController::Instance()->addToGameObjectList(theWall);
+						_cells[x][y]->_cellType = Cell::Wall;
+
+						_cells[x][y]->SetGameObject(theWall);
+					}
+					break;
+			}
 			counter++;
 		}
 	}
-
-	//_cells[0][0]->RemoveGameObject();
 }
 
 Cell* Grid::GetCell(int x, int y)

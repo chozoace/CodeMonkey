@@ -47,3 +47,13 @@ void Cell::RemoveGameObject()
 		_cellType = Cell::Empty;
 	}
 }
+
+void Cell::SafeRemoveGameObject()
+{
+	//use this when pushing blocks 
+	if (myObject != NULL)
+	{
+		myObject = NULL;
+		_cellType = Cell::Empty;
+	}
+}

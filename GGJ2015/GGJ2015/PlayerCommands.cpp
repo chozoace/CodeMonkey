@@ -40,7 +40,8 @@ void RightCommand::rightMove(GameObject* theObject)
 				pushObject->moveWall(2);
 				pushDestination->SetGameObject(pushObject);
 				pushDestination->_cellType = Cell::Pushable;
-				//neighbor->RemoveGameObject();
+				neighbor->SafeRemoveGameObject();
+				theObject->setXPos(theObject->getXPos() + 64);
 			}
 		}
 	}
@@ -72,11 +73,27 @@ void LeftCommand::leftMove(GameObject* theObject)
 	neighbor = Grid::Instance()->GetNeighborCell(myCell, -1, 0);
 	if (neighbor->_cellType == Cell::Wall)
 	{
-		printf("wall\n");
+		if (theObject->getId() == 100)
+		{
+			printf("wall\n");
+		}
 	}
 	else if (neighbor->_cellType == Cell::Pushable)
 	{
 		printf("pushable\n");
+		if (theObject->getId() == 100)
+		{
+			Cell* pushDestination = Grid::Instance()->GetNeighborCell(myCell, -2, 0);
+			if (pushDestination->_cellType == Cell::Empty)
+			{
+				GameObject* pushObject = neighbor->GetGameObject();
+				pushObject->moveWall(4);
+				pushDestination->SetGameObject(pushObject);
+				pushDestination->_cellType = Cell::Pushable;
+				neighbor->SafeRemoveGameObject();
+				theObject->setXPos(theObject->getXPos() - 64);
+			}
+		}
 	}
 	else if (neighbor->_cellType == Cell::Empty)
 	{
@@ -105,12 +122,26 @@ void UpCommand::upMove(GameObject* theObject)
 	neighbor = Grid::Instance()->GetNeighborCell(myCell, 0, -1);
 	if (neighbor->_cellType == Cell::Wall)
 	{
-		printf("wall\n");
+		if (theObject->getId() == 100)
+		{
+			printf("wall\n");
+		}
 	}
 	else if (neighbor->_cellType == Cell::Pushable)
 	{
-		printf("pushable\n");
-		GameObject* theWall = neighbor->GetGameObject();
+		if (theObject->getId() == 100)
+		{
+			Cell* pushDestination = Grid::Instance()->GetNeighborCell(myCell, 0, -2);
+			if (pushDestination->_cellType == Cell::Empty)
+			{
+				GameObject* pushObject = neighbor->GetGameObject();
+				pushObject->moveWall(1);
+				pushDestination->SetGameObject(pushObject);
+				pushDestination->_cellType = Cell::Pushable;
+				neighbor->SafeRemoveGameObject();
+				theObject->setYPos(theObject->getYPos() - 64);
+			}
+		}
 
 	}
 	else if (neighbor->_cellType == Cell::Empty)
@@ -140,11 +171,27 @@ void DownCommand::downMove(GameObject* theObject)
 	neighbor = Grid::Instance()->GetNeighborCell(myCell, 0, 1);
 	if (neighbor->_cellType == Cell::Wall)
 	{
-		printf("wall\n");
+		if (theObject->getId() == 100)
+		{
+			printf("wall\n");
+		}
 	}
 	else if (neighbor->_cellType == Cell::Pushable)
 	{
 		printf("pushable\n");
+		if (theObject->getId() == 100)
+		{
+			Cell* pushDestination = Grid::Instance()->GetNeighborCell(myCell, 0, 2);
+			if (pushDestination->_cellType == Cell::Empty)
+			{
+				GameObject* pushObject = neighbor->GetGameObject();
+				pushObject->moveWall(3);
+				pushDestination->SetGameObject(pushObject);
+				pushDestination->_cellType = Cell::Pushable;
+				neighbor->SafeRemoveGameObject();
+				theObject->setYPos(theObject->getYPos() + 64);
+			}
+		}
 	}
 	else if (neighbor->_cellType == Cell::Empty)
 	{
