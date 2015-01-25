@@ -17,6 +17,7 @@ public:
 	Cell* GetNeighborCell(Cell *cell, int x, int y);
 	Cell* GetNearestCell(int x, int y);
 	static Grid* Instance(){ return instance; }
+	Cell*** getCellArray(){ return _cells; }
 
 	int GetCellSize();
 	int GetColumns();

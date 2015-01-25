@@ -2,6 +2,8 @@
 #define WALL_H
 
 #include "GameObject.h"
+#include "Command.h"
+
 
 class Wall : public GameObject
 {
@@ -10,8 +12,11 @@ class Wall : public GameObject
 		Wall(float xPos, float yPos, int theId);
 		void Initialize(float xPos, float yPos, int theId);
 		virtual ~Wall();
+		void destroy();
+		void moveWall(int direction);
+		bool isPushable() { return pushable; }
+		void detectCell();
 	protected:
-		int id;
 };
 
 #endif WALL_H

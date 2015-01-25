@@ -93,6 +93,11 @@ void GameController::addToGameObjectList(GameObject* theObject)
 	gameObjectList.push_back(theObject);
 }
 
+void GameController::removeFromGameObjectList(GameObject* theObject)
+{
+	gameObjectList.remove(theObject);
+}
+
 SDL_Texture* GameController::loadTexture(std::string path)
 {
 	SDL_Texture* newTexture = NULL;

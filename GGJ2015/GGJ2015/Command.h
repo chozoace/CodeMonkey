@@ -16,9 +16,10 @@ class RightCommand : public Command
 	public:
 		void Execute(GameObject* theObject) { rightMove(theObject); }
 		void ExecuteRelease(GameObject* theObject) { rightMoveRelease(theObject); }
-
+	private:
 		void rightMove(GameObject* theObject);
 		void rightMoveRelease(GameObject* theObject);
+		bool movingRight = false;
 };
 
 class LeftCommand : public Command
@@ -29,6 +30,7 @@ class LeftCommand : public Command
 	private:
 		void leftMove(GameObject* theObject);
 		void leftMoveRelease(GameObject* theObject);
+		bool movingLeft = false;
 };
 
 class UpCommand : public Command
@@ -39,6 +41,7 @@ class UpCommand : public Command
 	private:
 		void upMove(GameObject* theObject);
 		void upMoveRelease(GameObject* theObject);
+		bool movingUp = false;
 };
 
 class DownCommand : public Command
@@ -49,6 +52,7 @@ class DownCommand : public Command
 	private:
 		void downMove(GameObject* theObject);
 		void downMoveRelease(GameObject* theObject);
+		bool movingDown = false;
 };
 
 #endif COMMAND_H

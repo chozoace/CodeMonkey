@@ -9,7 +9,9 @@
 #include <Windows.h>
 #include "Visibility.h"
 #include "Tickable.h"
+//#include "Command.h"
 
+class Command;
 class GameObject
 {
 	public:
@@ -34,13 +36,27 @@ class GameObject
 		int getWidth(){ return _width; }
 		int getHeight(){ return _height; }
 		Tickable* getTickableComponent(){ return _t; }
+
+		int getId(){ return id; }
+		void moveWall(int direction);
+		bool isPushable() { return pushable; }
+		bool IsWall() { return isWall; }
+		void detectCell();
+		void Action();
 	protected:
 		Visibility* _v;
 		Tickable* _t;
+		Command* leftCommand;
+		Command* rightCommand;
+		Command* downCommand;
+		Command* upCommand;
+		bool pushable = false;
+		bool isWall = false;
 		float _xPosition = 0;
 		float _yPosition = 0;
 		int _width = 0;
 		int _height = 0;
+		int id = 0; //player id = 100
 };
 
 #endif GAMEOBJECT_H

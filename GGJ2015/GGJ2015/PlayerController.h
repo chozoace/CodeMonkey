@@ -2,6 +2,7 @@
 #define PLAYERCONTROLLER_H
 
 #include "Tickable.h"
+#include "Cell.h"
 
 class Command;
 class PlayerController : public Tickable
@@ -12,6 +13,7 @@ class PlayerController : public Tickable
 		virtual void Update(float timeElapsed);
 		void handleInput(SDL_Event& e);
 	private:
+		Cell* currentCell;
 		Command* leftCommand;
 		Command* rightCommand;
 		Command* downCommand;

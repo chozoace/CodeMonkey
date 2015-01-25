@@ -13,6 +13,7 @@ Player::Player(int xPos, int yPos)
 {
 	//load image
 	//
+	id = 100;
 	_v = new Visible(this);
 	playerController = new PlayerController(this);
 	_t = playerController;

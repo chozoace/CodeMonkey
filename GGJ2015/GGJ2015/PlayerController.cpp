@@ -35,11 +35,15 @@ PlayerController::~PlayerController()
 
 void PlayerController::Update(float timeElapsed)
 {
-	//printf("xpos: %f\n", myObject->getXPos());
-	//For some reasone left and up movement move really fast compared to down and right. Keep the speed high
-	//Something wrong with elapsed time
-	myObject->setXPos(myObject->getXPos() + (xVelocity * timeElapsed));
-	myObject->setYPos(myObject->getYPos() + (yVelocity * timeElapsed));
+	//Set Current Cell
+	currentCell = Grid::Instance()->GetNearestCell(myObject->getXPos(), myObject->getYPos());
+
+	//Movement
+	//myObject->setXPos(myObject->getXPos() + (xVelocity * timeElapsed));
+	//myObject->setYPos(myObject->getYPos() + (yVelocity * timeElapsed));
+
+	//Check collision and resolve
+	
 
 	//center camera over player
 	Camera::Instance()->setXPosition((myObject->getXPos() + myObject->getWidth() / 2) - screenWidth / 2);

@@ -10,11 +10,12 @@
 
 #include <iostream>
 
+Grid* Grid::instance;
+
 Grid::Grid()
 {
-
+	instance = this;
 }
-
 
 Grid::~Grid()
 {
@@ -51,7 +52,6 @@ void Grid::Initialize(const char* level)
 	_columns = XmlParser::GetIntVariable("width", level);
 	_rows = XmlParser::GetIntVariable("height", level);
 	_cellSize = XmlParser::GetIntVariable("tilewidth", level);
-	
 
 	_cells = new Cell**[_columns];
 	for (int i = 0; i < _columns; i++)
@@ -66,12 +66,15 @@ void Grid::Initialize(const char* level)
 		{
 			Cell* cell = new Cell();
 			_cells[x][y] = cell;
+			cell->SetCellX(x * _cellSize);
+			cell->SetCellY(y * _cellSize);
 
 			if (nodes[counter] == 1)
 			{
 				Wall *theWall = new Wall();
 				theWall->Initialize(x * _cellSize, y * _cellSize, 1);
 				GameController::Instance()->addToGameObjectList(theWall);
+				_cells[x][y]->_cellType = Cell::Wall;
 
 				_cells[x][y]->SetGameObject(theWall);
 			}
@@ -79,22 +82,38 @@ void Grid::Initialize(const char* level)
 			{
 				GameController::Instance()->CreatePlayer(x * _cellSize, y * _cellSize);
 			}
+			else if (nodes[counter] == 3)
+			{
+				//pushable wall
+				Wall *theWall = new Wall();
+				theWall->Initialize(x * _cellSize, y * _cellSize, 3);
+				GameController::Instance()->addToGameObjectList(theWall);
+				_cells[x][y]->_cellType = Cell::Pushable;
+
+				_cells[x][y]->SetGameObject(theWall);
+			}
 
 			counter++;
 		}
 	}
+
+	//_cells[0][0]->RemoveGameObject();
 }
 
 Cell* Grid::GetCell(int x, int y)
 {
-	if (x < 0 || y < 0 || x > (_columns * _rows) || y >= (_columns * _rows)) return NULL;
+	if (x < 0 || y < 0 || x > (_columns) || y > (_rows))
+	{
+		printf("returns null\n");
+		return NULL;
+	}
 
 	return _cells[x][y];
 }
 
 Cell* Grid::GetNeighborCell(Cell *targetCell, int xOffSet, int yOffSet)
 {
-	return GetCell(targetCell->GetCellX() + xOffSet, targetCell->GetCellY() + yOffSet);
+	return GetCell(targetCell->GetCellX()/64 + xOffSet, targetCell->GetCellY()/64 + yOffSet);
 }
 
 Cell* Grid::GetNearestCell(int worldX, int worldY)

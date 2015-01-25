@@ -32,6 +32,7 @@ class GameController
 		void Update(float elapsedTime);
 		void handleInput(SDL_Event& e);
 		void addToGameObjectList(GameObject* theObject);
+		void removeFromGameObjectList(GameObject* theObject);
 		void CreatePlayer(float x, float y);
 		int levelWidth = 1280;
 		int levelHeight = 896;
